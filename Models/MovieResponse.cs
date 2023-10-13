@@ -1,6 +1,6 @@
 ﻿namespace PruebaTecnicaApiRest.Models
 {
-    public class SearchMovieResponse
+    public class MovieResponse
     {
         public int page { get; set; }
         public List<MovieResult> results { get; set; }

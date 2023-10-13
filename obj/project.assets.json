@@ -654,11 +654,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\PruebaTecnicaApiRest\\PruebaTecnicaApiRest.csproj",
+      "projectUniqueName": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\ApiRestTMDB\\PruebaTecnicaApiRest.csproj",
       "projectName": "PruebaTecnicaApiRest",
-      "projectPath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\PruebaTecnicaApiRest\\PruebaTecnicaApiRest.csproj",
+      "projectPath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\ApiRestTMDB\\PruebaTecnicaApiRest.csproj",
       "packagesPath": "C:\\Users\\vazqu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\PruebaTecnicaApiRest\\obj\\",
+      "outputPath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\ApiRestTMDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vazqu\\AppData\\Roaming\\NuGet\\NuGet.Config",

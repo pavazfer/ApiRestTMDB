@@ -13,7 +13,7 @@
         public string mediaType { get; set; }
         public List<int> genreIds { get; set; }
         public double popularity { get; set; }
-        public DateTime release_date { get; set; }
+        public string release_date { get; set; }
         public bool video { get; set; }
         public double vote_average { get; set; }
         public int vote_count { get; set; }

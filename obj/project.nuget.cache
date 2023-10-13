@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "anf3A4HYkEA80nh1QYfRFpbRcNdt/U+ucRAImbGC756/CBFhS4GoBxJWxnYkESsUluC/yVNc0M+nl06FmEFdqA==",
+  "dgSpecHash": "NjA5sLL/0zFepJRTPM4Wnq9zMo/n5CsvUhWa80LmLM9CVgEa4hyBeJznY0xjDXk9FezZVoNBI1Nf2+U8K+ewaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\PruebaTecnicaApiRest\\PruebaTecnicaApiRest.csproj",
+  "projectFilePath": "C:\\Users\\vazqu\\OneDrive\\Escritorio\\ALDABA\\ApiRestTMDB\\PruebaTecnicaApiRest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vazqu\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\vazqu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

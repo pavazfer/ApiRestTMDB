@@ -2,16 +2,19 @@
 using RestSharp;
 using Microsoft.Extensions.Configuration;
 using PruebaTecnicaApiRest.Models;
+using System.Linq;
 
 [Route("api/movies")]
 [ApiController]
 public class MoviesController : ControllerBase
 {
     private readonly IConfiguration _configuration;
+    private readonly RestClient _client;
 
     public MoviesController(IConfiguration configuration)
     {
         _configuration = configuration;
+        _client = new RestClient("https://api.themoviedb.org/3");
     }
 
     [HttpGet("search")]
@@ -23,12 +26,13 @@ public class MoviesController : ControllerBase
         }
 
         var apiKey = _configuration["TMDApiKey"];
-        var client = new RestClient("https://api.themoviedb.org/3");
-        var request = new RestRequest($"/search/movie?api_key={apiKey}&query={title}");
+        var request = new RestRequest($"/search/movie");
+        request.AddParameter("api_key", apiKey);
+        request.AddParameter("query", title);
 
-        var response = client.Get<SearchMovieResponse>(request);
+        var response = _client.Get<MovieResponse>(request);
 
-        if (response != null && response.results.Count > 0)
+        if (response != null && response.results.Any())
         {
             var movie = response.results.FirstOrDefault();
 
@@ -38,11 +42,11 @@ public class MoviesController : ControllerBase
 
                 var result = new
                 {
-                    Title = movie.title,
-                    OriginalTitle = movie.original_title,
-                    AverageRating = movie.vote_average,
-                    ReleaseDate = movie.release_date.ToString("yyyy-MM-dd"),
-                    Overview = movie.overview,
+                    movie.title,
+                    movie.original_title,
+                    movie.vote_average,
+                    movie.release_date,
+                    movie.overview,
                     SimilarMovies = similarMovies
                 };
 
@@ -52,22 +56,23 @@ public class MoviesController : ControllerBase
 
         return NotFound("No se encontró la película.");
     }
+
     private string GetSimilarMovies(int? movieId, string? apiKey)
     {
-        var client = new RestClient("https://api.themoviedb.org/3");
-        var request = new RestRequest($"/movie/{movieId}/similar?api_key={apiKey}");
-        var response = client.Get<SimilarMoviesResponse>(request);
+        var request = new RestRequest($"/movie/{movieId}/similar");
+        request.AddParameter("api_key", apiKey);
+
+        var response = _client.Get<MovieResponse>(request);
 
         if (response != null)
         {
             var similarMovies = response.results
                 .Take(5)
-                .Select(m => $"{m.title} ({m.release_date.ToString("yyyy")})");
+                .Select(m => $"{m.title} ({m.release_date?.Substring(0, 4)})");
 
             return string.Join(", ", similarMovies);
         }
 
         return string.Empty;
     }
-
 }
